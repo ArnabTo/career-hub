@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import { useEffect, useState } from "react";
 import Job from "../../job/Job";
 const FeaturedJob = () => {

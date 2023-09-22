@@ -5,7 +5,8 @@ const Home = () => {
     return (
         <div>
             <Hero></Hero>
-            <FeaturedJob></FeaturedJob>
+            <div className=" max-w-6xl m-auto">
+            <FeaturedJob></FeaturedJob></div>
         </div>
     );
 };
