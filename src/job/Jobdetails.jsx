@@ -4,12 +4,19 @@ import EmailI from "../components/icons/EmailI";
 import LocationI from "../components/icons/LocationI";
 import PhoneI from "../components/icons/Phone";
 import TitleI from "../components/icons/TitleI";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplications } from "../utility/localStorage";
 
 const Jobdetails = () => {
     const jobs = useLoaderData();
     const { id } = useParams();
-    const job = jobs.find(job => job.id == id)
-
+    const intId = parseInt(id)
+    const job = jobs.find(job => job.id == intId)
+  const handleApply = () => {
+    saveJobApplications(intId);    
+    toast("Job Applied!");
+}
     return (
         <div className="max-w-7xl m-auto py-16">
             <div className="grid gap-2 md:grid-cols-4">
@@ -44,9 +51,10 @@ const Jobdetails = () => {
                                 <b>Address:</b>{job.contact_information.address}</p>
                         </div>
                     </div>
-                    <div><button className="btn btn-primary bg-[#9873FF] text-white text-xl font-extrabold w-full">Apply Now</button></div>
+                    <div><button className="btn btn-primary bg-[#9873FF] text-white text-xl font-extrabold w-full" onClick={handleApply}>Apply Now</button></div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

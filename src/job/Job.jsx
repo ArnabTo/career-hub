@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
     // console.log(job)
     const {id, logo, job_title, company_name, remote_or_onsite, location, salary, job_type } = job;
-    console.log(logo)
+    
     return (
         <div>
             <div className="card card-compact shadow-xl border-[#E8E8E8] border-[1px] rounded-lg text-start px-10 py-2 ">
@@ -27,6 +28,6 @@ const Job = ({ job }) => {
             </div>
         </div>
     );
+ 
 };
-
 export default Job;
